@@ -11,4 +11,45 @@
 {% block body %}
 
 
+
+
+<div id="movie-container"></div>
+<button id="next-button">Наступний</button>
+
+
+
+<script>
+    // Отримати елементи DOM
+    const movieContainer = document.getElementById('movie-container');
+    const nextButton = document.getElementById('next-button');
+
+    // Змінна для відстеження поточного індексу фільму
+    let currentIndex = -1;
+
+    // Функція для виклику API та отримання списку популярних фільмів
+    async function fetchPopularMovies() {
+        const apiKey = '7f540cdc422c17adc3781b8227d0b71c';  // Вкажіть свій ключ API TMDb
+        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
+        const data = await response.json();
+        return data.results;
+    }
+
+    // Функція для оновлення вмісту сторінки наступним фільмом
+    async function showNextMovie() {
+        const movies = await fetchPopularMovies();
+        currentIndex = (currentIndex + 1) % movies.length;
+        const nextMovie = movies[currentIndex];
+        movieContainer.innerHTML = `
+            <h2>${nextMovie.title}</h2>
+            <img src="https://image.tmdb.org/t/p/w500/${nextMovie.poster_path}" alt="${nextMovie.title} Poster">
+        `;
+    }
+
+    // Додати обробник подій для кнопки "Наступний"
+    nextButton.addEventListener('click', showNextMovie);
+
+    // Початкове викликання для відображення першого фільму
+    showNextMovie();
+</script>
 {% endblock %}
+
