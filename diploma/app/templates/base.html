@@ -6,32 +6,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{% load static %}
 
-	<link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+	<link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Zen+Dots&display=swap" rel="stylesheet">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 	{% block head %}
     {% endblock %}
 </head>
 <body>
 	<header>
-		<div class="headed">
-
-			<div class="nav_bar">
-				<div class="nav_route">
-					<a href="/">
-						<h1>КАТАЛОГ</h1>
-					</a>
-				</div>
-				<div class="nav_route">
-					<a href="/profile">
-						<h1>МАПА</h1>
-					</a>
-				</div>
-				
+		<div class="logos">
+			<h1 class="logo1">Movie Mate</h1>
+			<img  src="{% static 'image/1.svg' %}" alt="123" class="logo2">
+		 </div>
+		<div class="nav_bar">
+			<div class="nav_route">
+				<a href="/home">
+					<h1>Home</h1>
+				</a>
 			</div>
+			<div class="nav_route">
+				<a href="/watched">
+					<h1>Watched</h1>
+				</a>
+			</div>
+			<div class="nav_route">
+				<a href="/profile">
+					<h1>Profile</h1>
+				</a>
+			</div>
+			
 		</div>
 	</header>
 
