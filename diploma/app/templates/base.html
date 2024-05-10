@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{% load static %}
 
-	<link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+	<link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css"> 
 	<link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Zen+Dots&display=swap" rel="stylesheet">
 
 
@@ -16,12 +16,16 @@
 <body>
 	<header>
 		<div class="logos">
-			<h1 class="logo1">Movie Mate</h1>
+			<div class="logo1">
+				<a href="/">
+				<h1>Movie Mate</h1>
+				</a>
+			</div>
 			<img  src="{% static 'image/1.svg' %}" alt="123" class="logo2">
 		 </div>
 		<div class="nav_bar">
 			<div class="nav_route">
-				<a href="/home">
+				<a href="/">
 					<h1>Home</h1>
 				</a>
 			</div>

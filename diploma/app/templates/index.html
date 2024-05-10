@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css"> 
 <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
 <title>ГОЛОВНА </title>
 {% endblock %}
@@ -12,30 +12,41 @@
 
 {% block body %}
 
-<div class="container">
+<div id="container">
     <h1>Movie recomendation system</h1>    
     <h2> Do you want to get quick recommendations or go to registration and get personalized recommendations?</h2>
 
-    <a href="/catalog">
-        <p>КАТАЛОГ</p>
-    </a>
+    <div class="buttons">
+
+        
+
+        <button id="button1" class="button-28" onclick="hideButtons()">Quick recommendations</button>
+        <button id="button2" class="button-28"  onclick="hideButtons()">Personal recommendations</button>
+    </div>
+</div>  
 
 
 
-
+<div id="movie-container">
 </div>
-
-
-
-
-
-
-<!-- <div id="movie-container"></div> -->
-<!--<button id="next-button">Наступний</button>-->
+<button id="next-button">Наступний</button>
+    
 
 
 
 <script>
+
+    function hideButtons() {
+        document.getElementById("movie-container").style.display = "flex";
+        document.getElementById("container").style.display = "none";
+        document.getElementById("next-button").style.display = "block";
+        
+
+    }
+
+
+
+
     // Отримати елементи DOM
     const movieContainer = document.getElementById('movie-container');
     const nextButton = document.getElementById('next-button');
@@ -46,7 +57,7 @@
     // Функція для виклику API та отримання списку популярних фільмів
     async function fetchPopularMovies() {
         const apiKey = '7f540cdc422c17adc3781b8227d0b71c';  // Вкажіть свій ключ API TMDb
-        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`);
         const data = await response.json();
         return data.results;
     }
@@ -57,8 +68,15 @@
         currentIndex = (currentIndex + 1) % movies.length;
         const nextMovie = movies[currentIndex];
         movieContainer.innerHTML = `
-            <h2>${nextMovie.title}</h2>
             <img src="https://image.tmdb.org/t/p/w500/${nextMovie.poster_path}" alt="${nextMovie.title} Poster">
+            <div class="info">
+            <h2>${nextMovie.title}</h2>
+            <h2>${nextMovie.original_title}</h2>
+            <h2>${nextMovie.release_date}</h2>
+            <h2>${nextMovie.vote_average}</h2>
+            <p>${nextMovie.overview}</p>
+            
+            <div>
         `;
     }
 
@@ -67,6 +85,7 @@
 
     // Початкове викликання для відображення першого фільму
     showNextMovie();
+
 </script>
 {% endblock %}
 

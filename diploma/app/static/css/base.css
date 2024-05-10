@@ -8,7 +8,8 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 'Arsenal', sans-serif;
+    font-family: "Bruno Ace SC", sans-serif;
+	
 }
 
 
@@ -58,11 +59,10 @@ header {
 }
 
 .nav_route h1 {
-	font-size: 22px;
+	font-size: 20px;
 	margin: 20px;
 	font-weight: bold;
 	color: #fff;
-	font-family: "Arsenal", sans-serif;
 }
 
 .nav_bar a {
