@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>BOB123R | ПРОФІЛЬ</title>
+{% endblock %}
+{% block body %}
+    <h1> Register now! </h1>
+
+    <form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        {{registerform.as_p}}
+
+        <input type="submit" value="Register"/>
+
+
+    </form>
+    
+    {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+    <h1> Login here </h1>
+
+    <form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        {{loginform.as_p}}
+
+        <input type="submit" value="Login"/>
+
+
+    </form>
+
+    {% endblock %}
