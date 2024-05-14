@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container{
+    max-width: 688px;
+    width: 100%;
+	background: linear-gradient( #131313, #131313, #500f0f);
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    color: #fff;
+
+}
+
+.registerform {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.registerform span {
+    display: none;
+}
+
+.registerform ul {
+    display: none;
+}
+
+.registerform p {
+    color: #fff;
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.registerform p label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+.registerform p input[type="text"], input[type="email"], input[type="password"] {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.button-28 input[type="submit"]{
+    height: 100%;
+    width: 100%;
+
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-28:hover  input[type="submit"]{
+    font-family: "Bruno Ace SC", sans-serif;
+    color: rgb(255, 196, 0);
+} 
+
+
+
+.button-28 {
+    display: flex;
+justify-content: center;   
+    margin: 35px 0;
+}

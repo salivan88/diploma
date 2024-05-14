@@ -3,20 +3,73 @@
 {% load static %}
 
 {% block head %}
-<title>BOB123R | ПРОФІЛЬ</title>
+<link rel="stylesheet" href="{% static 'css/register.css'%}" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+<title>Register</title>
 {% endblock %}
 {% block body %}
-    <h1> Register now! </h1>
 
-    <form method="POST" autocomplete="off">
+<div class="container">
+
+    <h1 class="title"> Register now! </h1>
+
+    <form class="registerform" method="POST" autocomplete="off">
 
         {% csrf_token %}
 
         {{registerform.as_p}}
 
-        <input type="submit" value="Register"/>
+        
 
 
     </form>
+    <div class="button-28">
+        <input type="submit" value="Register">
+    </div>
     
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('p').each(function(){
+        if($(this).html().trim() == '') {
+            $(this).hide();
+        }
+    });
+});
+
+$(document).ready(function(){
+        $('#id_first_name').attr('placeholder', 'Enter your first name');
+        $('#id_last_name').attr('placeholder', 'Enter your last name');
+        $('#id_username').attr('placeholder', 'Enter your username');
+        $('#id_email').attr('placeholder', 'Enter your email');
+        $('#id_password1').attr('placeholder', 'Enter your password');
+        $('#id_password2').attr('placeholder', 'Confirm your password');
+
+
+
+    });
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
     {% endblock %}
+
+
+  
+    
