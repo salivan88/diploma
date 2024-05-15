@@ -32,6 +32,15 @@
     margin-top: 50px;
 }
 
+#container .buttons a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#container .buttons #button2:hover a {
+    color: rgb(255, 196, 0);
+}
+
 
 
 #movie-container{

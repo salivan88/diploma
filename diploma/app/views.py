@@ -20,21 +20,17 @@ def watched(request):
     return render(request, 'watched.html')
 
 def register(request):
-
-    form = CreateUserForm()
-
     if request.method == "POST":
-
         form = CreateUserForm(request.POST)
-
         if form.is_valid():
-
             form.save()
-
             return redirect("my-login")
+    else:
+        form = CreateUserForm()
 
-
-    context = {'registerform':form}
+    # Додаємо повідомлення про помилки до контексту, якщо форма не є валідною
+    error_messages = form.errors.as_data()
+    context = {'registerform': form, 'errors': error_messages}
 
     return render(request, 'register.html', context=context)
 
@@ -58,7 +54,7 @@ def my_login(request):
 
                 auth.login(request, user)
 
-                return redirect("dashboard")
+                return redirect("/profile")
 
 
     context = {'loginform':form}
@@ -73,11 +69,6 @@ def user_logout(request):
     return redirect("/")
 
 
-
-@login_required(login_url="my-login")
-def dashboard(request):
-
-    return render(request, 'dashboard.html')
 
 
 

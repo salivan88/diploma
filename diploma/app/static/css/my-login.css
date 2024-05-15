@@ -6,8 +6,8 @@ main {
 }
 
 .container{
-    margin-top: 50px;
-    max-width: 688px;
+    margin-top: 100px;
+    max-width: 350px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);    padding: 25px 30px;
     border-radius: 20px;
@@ -19,30 +19,18 @@ main {
 .container .title {
     font-size: 25px;
     font-weight: 500;
-    position: relative;
     color: #fff;
 
 }
 
 .registerform {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0 12px 0;
-}
-
-.registerform span {
-    display: none;
-}
-
-.registerform ul {
-    display: none;
+    margin: 20px 0 0 0;
 }
 
 .registerform p {
     color: #fff;
     margin-bottom: 15px;
-    width: calc(100% / 2 - 20px);
+    width: 100%;
 }
 
 .registerform p label {
@@ -52,7 +40,7 @@ main {
 }
 
 
-.registerform p input[type="text"], input[type="email"], input[type="password"] {
+.registerform p input[type="text"], input[type="password"] {
     height: 45px;
     width: 100%;
     outline: none;
@@ -89,9 +77,5 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;   
-    margin: 15px 0;
-}
-
-li {
-    color:#fff
+    margin: 5px 0;
 }

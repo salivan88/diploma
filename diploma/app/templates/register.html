@@ -19,14 +19,26 @@
 
         {{registerform.as_p}}
 
-        
+        <div class="button-28">
+            <input type="submit" value="Register">
+        </div>
 
 
     </form>
-    <div class="button-28">
-        <input type="submit" value="Register">
-    </div>
     
+    
+
+    {% if errors %}
+    <ul>
+    {% for field, error_list in errors.items %}
+        {% for error in error_list %}
+            <li>{{ field|title }}: {{ error.message }}</li>
+        {% endfor %}
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
 </div>
 
 
