@@ -12,4 +12,7 @@ urlpatterns = [
     path('my-login', my_login, name="my-login"),
 
     path('user-logout', user_logout, name="user-logout"),
+
+    path('add_user_movie/', add_user_movie, name='add_user_movie'),
+    
 ]

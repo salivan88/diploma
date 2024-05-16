@@ -4,11 +4,53 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/watched.css'%}" type="text/css">
-<title>BOBR | ПРОФІЛЬ</title>
+<title>Watched</title>
 {% endblock %}
 
 
 {% block body %}
-<h1> asas</h1>
+
+<div id="movieContainer"></div>
+
+<script>
+    
+    const movieContainer = document.getElementById('movieContainer');
+    const apiKey = '7f540cdc422c17adc3781b8227d0b71c';      
+
+    async function fetchMovieDetails(movieIds) {
+    const movieDetailsPromises = movieIds.map(async movieId => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`);
+        return response.json();
+    });
+
+    return Promise.all(movieDetailsPromises);
+    }
+
+    async function showAllMovies() {
+
+        const userMovies = JSON.parse("{{ user_movies_json|escapejs }}");
+
+        console.log(userMovies)
+        const movieIds = userMovies.map(movie => movie.fields.movie_id);
+
+        console.log(movieIds)
+
+        const movieDetails = await fetchMovieDetails(movieIds);
+
+        movieContainer.innerHTML = movieDetails.map(movie => {
+            return `
+                <div class="movie">
+                    <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster">
+                    <h1>${movie.title}</h1>
+                </div>
+            `;
+        }).join('');
+    }
+
+    showAllMovies();
+
+</script>
+
+
 
 {% endblock %}

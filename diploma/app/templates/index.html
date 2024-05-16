@@ -33,7 +33,13 @@
 </div>
 
 <div class="btt">
-    <button id="watched" class="button-28" >Watched</button>
+
+    <form id="watched-form" method="POST" action="/add_user_movie/">
+        {% csrf_token %}
+        <input type="hidden" id="movieIdInput" name="movie_id" value="">
+        <button type="submit" id="watched-button">Watched</button>
+    </form>
+
     <button id="next-button" class="button-28" >Next</button>
 </div>
 
@@ -45,11 +51,13 @@
         document.getElementById("movie-container").style.display = "flex";
         document.getElementById("container").style.display = "none";
         document.getElementById("next-button").style.display = "flex";
-        document.getElementById("watched").style.display = "flex";
+        document.getElementById("watched-form").style.display = "flex";
     }
 
     const movieContainer = document.getElementById('movie-container');
     const nextButton = document.getElementById('next-button');
+    const watchedButton = document.getElementById('watched-button');
+
     const apiKey = '7f540cdc422c17adc3781b8227d0b71c';  
 
     let currentIndex = 0;
@@ -99,6 +107,28 @@
     }
 
     initialize();
+
+
+
+    document.getElementById('watched-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const movieId = popularMovies[currentIndex - 1];
+        document.getElementById('movieIdInput').value = movieId;
+
+        fetch(this.action, {
+            method: this.method,
+            body: new FormData(this)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Виникла помилка при виконанні запиту.');
+            }
+            alert('Запис успішно додано до списку переглянутих!');
+        })
+        .catch(error => {
+            console.error('Помилка:', error);
+        });
+    });
 
 
 </script>

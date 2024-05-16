@@ -1,3 +1,17 @@
 h1 {
     color: rgb(55, 0, 255);
 }
+
+
+#movieContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    
+}
+
+
+
+img {
+    width: 80%;
+}

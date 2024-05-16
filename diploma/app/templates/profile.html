@@ -15,6 +15,7 @@
 
 
     {% if user.is_authenticated %}
+        <h1> {{user.id}}</h1>
         <h1>Hello, {{ user.username }}!</h1>
         <h1>Member since {{user.date_joined|date:"M Y"}}</h1>
         <a href="{% url 'user-logout' %}"> Logout here </a>
@@ -31,11 +32,14 @@
 
     <a class="button-28" href="{% url 'my-login' %}"> Login here </a>
     </div>
+
+
     {% endif %}
 
+
+
+    
 </div>
-
-
 
 
 {% endblock %}

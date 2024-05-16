@@ -1,14 +1,17 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import requests
 from django.shortcuts import render, redirect
 
 from . forms import CreateUserForm, LoginForm
 
-from django.contrib.auth.decorators import login_required
-
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
-# Create your views here.
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import UserMovie
+from django.core.serializers import serialize
+
 
 def index(request):
     return render(request, 'index.html')
@@ -17,7 +20,11 @@ def profile(request):
     return render(request, 'profile.html')
 
 def watched(request): 
-    return render(request, 'watched.html')
+    user_id = request.user.id
+    user_movies = UserMovie.objects.filter(user_id=user_id)
+    user_movies_json = serialize('json', user_movies) 
+    
+    return render(request, 'watched.html', {'user_movies_json': user_movies_json})
 
 def register(request):
     if request.method == "POST":
@@ -28,7 +35,6 @@ def register(request):
     else:
         form = CreateUserForm()
 
-    # Додаємо повідомлення про помилки до контексту, якщо форма не є валідною
     error_messages = form.errors.as_data()
     context = {'registerform': form, 'errors': error_messages}
 
@@ -68,31 +74,15 @@ def user_logout(request):
 
     return redirect("/")
 
-
-
-
-
-
-
-
-
-# def tmdb_movies(request):
-#     api_key = '7f540cdc422c17adc3781b8227d0b71c'
-#     url = 'https://api.themoviedb.org/3/movie/popular'
-
-#     params = {
-#         'api_key': api_key,
-#         'language': 'uk',
-#         'page': 1,
-#     }
-
-#     response = requests.get(url, params=params)
-
-#     if response.status_code == 200:
-#         data = response.json()
-#         movies = data.get('results', [])
-#         return render(request, 'index.html', { 'movies':movies})
-#     else:
-#         return HttpResponse('Failed to fetch data from TMDb', status=response.status_code)
-
+@csrf_exempt
+def add_user_movie(request):
+    if request.method == 'POST':
+        movie_id = request.POST.get('movie_id') 
+        if movie_id:
+            UserMovie.objects.create(movie_id=movie_id, user=request.user)
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'error': 'Movie ID not provided'}, status=400)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
 
