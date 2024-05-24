@@ -78,7 +78,7 @@
 }
 
 
-.btt {
+#btt {
     margin-top: 70px;
     display: flex;
     flex-direction: row;
@@ -93,3 +93,32 @@
 #watched-form{
     display: none;
 }
+
+
+#finale {
+    display: none;
+}
+
+#finale {
+    height: 400px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ffffff;
+}
+
+#finale #fin_button a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#finale #fin_button h1 {
+
+    text-align: center;
+}
+
+
+#finale #fin_button:hover a {
+    color: rgb(255, 196, 0);
+}
+

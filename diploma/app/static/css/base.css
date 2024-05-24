@@ -2,6 +2,7 @@
 body{
     background: url(/static/image/theatre.jpg);
     background-size: cover;
+    background-attachment: fixed;
     
 }
 

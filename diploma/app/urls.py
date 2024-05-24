@@ -14,5 +14,7 @@ urlpatterns = [
     path('user-logout', user_logout, name="user-logout"),
 
     path('add_user_movie/', add_user_movie, name='add_user_movie'),
+
+    path('rec', rec, name='rec')
     
 ]

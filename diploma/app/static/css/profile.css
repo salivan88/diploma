@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-.acc_container h1 {
+.acc_container h1, h2 {
     color: rgb(255, 196, 0);
     font-weight: 1000;
     filter: drop-shadow(0px 10px 3px #9d9a00);
@@ -25,3 +25,17 @@
     margin-top: 50px;
 }
 
+.recommendations{
+    display: flex;
+    flex-direction: row;
+}
+
+.recommendations h1, .recommendations h2{
+    color: #fff;
+    font-size: 20px;
+}
+
+.recommendations img{
+
+width: 100px;
+}
