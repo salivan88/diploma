@@ -14,27 +14,48 @@
 <div class="acc_container">
 
 
+    
+
     {% if user.is_authenticated %}
-        <h1> {{user.id}}</h1>
         <h1>Hello, {{ user.username }}!</h1>
-        <h1>Member since {{user.date_joined|date:"M Y"}}</h1>
+        <h2>Member since {{user.date_joined|date:"M Y"}}</h2>
         <a href="{% url 'user-logout' %}"> Logout here </a>
+
+
+        {% if movies %}
+        <h1>Recommended Movies</h1>
+
+        <div class="recommendations">
+            
+            {% for movie in movies %}
+                <div class="movie">
+                    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }} poster">
+                    <h2>{{ movie.title }}</h2>
+                
+                </div>
+            {% endfor %}
+            
+            {% endif %}
+        </div>
+
     {% else %}
 
-    <h1>Log in</h1>
-    <h3> To receive personalized recommendations and save watch lists, you need to log in to your account. 
-        <br>
-        if you don't have an account yet, register as soon as possible    </h3>
-    
-    <div class="buttons">
-    <a class="button-28" href="{% url 'register' %}"> Register here </a>s
-
-
-    <a class="button-28" href="{% url 'my-login' %}"> Login here </a>
-    </div>
+        <h1>Log in</h1>
+        <h3> To receive personalized recommendations and save watch lists, you need to log in to your account. 
+            <br>
+            if you don't have an account yet, register as soon as possible  
+        </h3>
+        
+        <div class="buttons">
+            <a class="button-28" href="{% url 'register' %}"> Register here </a>s
+            <a class="button-28" href="{% url 'my-login' %}"> Login here </a>
+        </div>
 
 
     {% endif %}
+
+
+
 
 
 

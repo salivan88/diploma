@@ -4,13 +4,43 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/watched.css'%}" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
 <title>Watched</title>
 {% endblock %}
 
 
 {% block body %}
 
-<div id="movieContainer"></div>
+
+
+
+{% if user.is_authenticated %}
+    <h1 class="title"> List of watched movies </h1>
+
+    <div id="movieContainer"></div>
+
+
+    {% else %}
+    <div class="acc_container">
+
+        <h1>Log in</h1>
+        <h3> To receive personalized recommendations and save watch lists, you need to log in to your account. 
+            <br>
+            if you don't have an account yet, register as soon as possible    </h3>
+        
+        <div class="buttons">
+            <a class="button-28" href="{% url 'register' %}"> Register here </a>s
+
+
+            <a class="button-28" href="{% url 'my-login' %}"> Login here </a>
+        </div>
+    </div>
+
+
+
+    {% endif %}
+
+
 
 <script>
     
