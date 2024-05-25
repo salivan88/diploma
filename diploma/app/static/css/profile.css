@@ -1,4 +1,42 @@
+.container {
+    height: 200px;
+}
+
+
+
+
+
 .acc_container {
+    margin: 10px 30px 10px 30px;    ;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+
+
+
+
+.acc_container h1{
+    color: rgb(255, 196, 0);
+    font-weight: 1000;
+}
+
+.acc_container h3 {
+    font-style: italic;
+    color: rgb(115, 88, 0);
+
+}
+
+
+
+
+
+
+
+.no_user {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -7,35 +45,68 @@
 
 }
 
-.acc_container h3 {
+.no_user h2 {
+    width: 1100px;
     margin-top: 50px;
     color: rgb(167, 33, 0);
     font-weight: 800;
     text-align: center;
 }
 
-.acc_container h1, h2 {
+.no_user h1 {
     color: rgb(255, 196, 0);
     font-weight: 1000;
     filter: drop-shadow(0px 10px 3px #9d9a00);
 
 }
 
-.acc_container .buttons {
+.no_user .buttons {
+    width: 800px;
+    display: flex;
     margin-top: 50px;
+    justify-content: space-evenly;
 }
+
+
+
+.container .rec {
+    color: rgb(255, 196, 0);
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+
 
 .recommendations{
     display: flex;
     flex-direction: row;
-}
+    justify-content: space-evenly;
 
-.recommendations h1, .recommendations h2{
-    color: #fff;
-    font-size: 20px;
 }
 
 .recommendations img{
 
-width: 100px;
+width: 250px;
+
+background-color: transparent;
+border: 2px solid #0256ff61;
+border-radius: 10px;
+box-sizing: border-box;
+color: #ffffffff;
+}
+
+.recommendations h2 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #ffffffff;
+    font-size: 20px;
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    width: 65%; 
+    white-space: nowrap;
+}
+
+.recommendations .movie {
+    width: 250px;
+
 }

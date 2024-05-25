@@ -37,9 +37,10 @@
     text-decoration: none;
 }
 
-#container .buttons #button2:hover a {
+#container .buttons #personal-recommendations-button:hover a {
     color: rgb(255, 196, 0);
 }
+
 
 
 
@@ -83,23 +84,31 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
-
-#next-button{
-    display: none;
-
-}
-
-#watched-form{
     display: none;
 }
 
+#btt #watched-form {
+    display: flex;
+    align-items: center;
+}
 
-#finale {
+#finale h1, #finale2 h1{
+    color: rgb(255, 196, 0);
+    font-weight: 1000;
+    filter: drop-shadow(0px 10px 3px #9d9a00);
+}
+
+#finale h2, #finale2 h2 {
+    color: rgb(167, 33, 0);
+    font-weight: 800;
+    text-align: center;
+}
+
+#finale , #finale2{
     display: none;
 }
 
-#finale {
+#finale , #finale2{
     height: 400px;
     flex-direction: column;
     align-items: center;
@@ -107,18 +116,67 @@
     color: #ffffff;
 }
 
-#finale #fin_button a {
+#fin_button a {
     color: #ffffff;
     text-decoration: none;
 }
 
-#finale #fin_button h1 {
+#fin_button h1 {
 
     text-align: center;
 }
 
 
-#finale #fin_button:hover a {
+#fin_button:hover a {
     color: rgb(255, 196, 0);
 }
 
+
+
+
+/* rating */
+
+ 
+  
+  
+  
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+  
+  
+
+/* rating */
