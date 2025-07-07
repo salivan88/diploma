@@ -2,6 +2,19 @@
 
 This project is a bachelor's diploma work, the purpose of which is to develop a system of personalized movies recommendations using machine learning methods. The project has a web device on Django, which allows users to receive personal recommendations based on movies.
 
+## Project visualization
+There are two modes: 
+
++ **Quick** (works without registration, simply recommends popular movies at the moment)
+<p align="center">
+  <img src="media/quick.gif" alt="" width="700"/>
+</p>
+
+
++ **Personal** (using movies that the user has appreciated, compares with other users and provides movies that user would like to like)
+<p align="center">
+  <img src="media/personal.gif" alt="" width="700"/>
+</p>
 
 ## Functionality
 
@@ -37,7 +50,7 @@ A small set of data from the Movielens service was used for this project. It has
 
 ## Full thesis
 
-The full text of the bachelor's work can be found in the file [`Diploma-Report-halchyshak.pdf`] (Docs/Diploma-Report-halchyshak.pdf).
+The full text of the bachelor's work can be found in the file [`full-text-of-bachelors-work.pdf`](full-text-of-bachelors-work.pdf)(in ukrainian).
 
 # Author
 + Yaroslav Halchyshak
